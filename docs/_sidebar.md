@@ -1,9 +1,12 @@
 - [Home](/)
 - [Introduction](introduction.md)
-- [Computation Detail](/)
+- Project Items
+	- [samples-leaf](samples.md)
+	- [strain](strain.md)
 	- [dos](dos.md)
 	- [render](render.md)
-	- [samples](samples.md)
 	- [sl](sl.md)
-	- [strain](strain.md)
 	- [test](test.md)
+- Analysis
+	
+- [Conclusion](conclusion.md)

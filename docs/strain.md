@@ -192,9 +192,6 @@ plot([x,'Strain'],[y,'Stress (GPa)'],filename='ave_stress.png')
 ### result
 
 ![](images/drop_position.png)
-![](images/young_distribution.png)
-![](images/drop_times_dist.png)
-![](images/break_strain_dist.png)
 
 <style>img{background:white;width:100%;}</style>
 

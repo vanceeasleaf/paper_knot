@@ -3,7 +3,7 @@
 ## circle
 apply strain cyclely
 
-### left-leaf
+### left
 
 > apply negative stress firstly and then positive. For different temperature but one sample
 
@@ -32,14 +32,14 @@ for T in range(100,300,20):
 	self.commit(opt,app);
 ```
 
-### right-leaf
+### right
 
 the same but 
 ``` python 
 minStrain=-0.15,maxStrain=0.05 
 ```
 
-### graphene-leaf 
+### graphene 
 >similar test for pure graphene
 
 ``` python
@@ -59,7 +59,7 @@ app=dict(reverseStrain=True,vStrain=True,
 self.commit(opt,app);
 ```
 
-## graphene-leaf
+## graphene
 > single direction straining of graphene
 
 ``` python
@@ -78,7 +78,7 @@ maxStrain=0.4,strainStep=1000,
 timestep=.5e-3,latx=70,laty=2)
 self.commit(opt,app);
 ```
-## seed-leaf
+## seed
 > apply strain for different T and seed for single direction strain
 
 ``` python
@@ -177,7 +177,7 @@ x=c[:,0,:].mean(axis=0)
 y=c[:,1,:].mean(axis=0)
 plot([x,'Strain'],[y,'Stress (GPa)'],filename='ave_stress.png')
 ```
-## seed1-leaf
+## seed1
 
 > anothor sampling of seed, so is seed2. and all the analysis is carried out in seed1 
 
@@ -195,11 +195,11 @@ plot([x,'Strain'],[y,'Stress (GPa)'],filename='ave_stress.png')
 
 <style>img{background:white;width:100%;}</style>
 
-## seed2-leaf
+## seed2
 
 > just sub.py
 
-## T-leaf
+## T
 
 > huge calculation for temperature. use single structrue from data/POSCAR
 

@@ -1,7 +1,7 @@
 - [Home](/)
 - [Introduction](introduction.md)
 - Project Items
-	- [samples-leaf](samples.md)
+	- [samples](samples.md)
 	- [strain](strain.md)
 	- [dos](dos.md)
 	- [render](render.md)

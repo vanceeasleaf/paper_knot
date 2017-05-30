@@ -81,8 +81,6 @@ series(xlabel='Frequency (THz)',
 	,filename='camparedos.png',legend=True,xmax=60)
 ```
 ### result
-![](images/atom_dos.png)
-![](images/region_dos.png)
 ![](images/camparedos.png)
 <style>img{background:white;width:100%;}</style>
 
@@ -108,3 +106,110 @@ class sub(Aces):
 if __name__=='__main__':
 	sub().run()
 ```
+
+## ph
+> phonopy calculation at gamma point of knot
+
+``` python
+from aces import Aces
+class sub(Aces):
+	def submit(self):
+		opt=dict(
+			units="metal",
+			species="graphene_knot",
+			method="greenkubo",
+			nodes=1,
+			procs=12,
+			queue="q1.1",
+			runTime=500000
+			,runner="phonopy"
+		)
+		app=dict(kpoints=[1,1,1],gamma_only=True,useMini=True,boxOpt=False,timestep=.182e-3,atomfile="POSCAR")
+		self.commit(opt,app);
+if __name__=='__main__':
+	sub().run()
+```
+
+## ph_graphene
+> the same but with the graphene ribbon
+
+``` python
+from aces import Aces
+class sub(Aces):
+	def submit(self):
+		opt=dict(
+			units="metal",
+			species="graphene_knot",
+			method="greenkubo",
+			nodes=1,
+			procs=4,
+			queue="q1.1",
+			runTime=500000
+			,runner="phonopy"
+		)
+		app=dict(kpoints=[1,1,1],gamma_only=True,
+		useMini=True,boxOpt=False,timestep=.182e-3,atomfile="POSCAR")
+		self.commit(opt,app);
+if __name__=='__main__':
+	sub().run()
+```
+## ph_graphene_bulk
+> the participation ratio of the above result is found not exactly 1.0, the reason is the periodic condiction is p s s but not p p p. So another calculation is carried out
+
+``` python
+from aces import Aces
+class sub(Aces):
+	def submit(self):
+		opt=dict(
+			units="metal",
+			species="graphene",
+			method="greenkubo",
+			nodes=1,
+			procs=4,
+			queue="q1.1",
+			runTime=500000
+			,runner="phonopy"
+		)
+		app=dict(kpoints=[1,1,1],gamma_only=True,
+		useMini=True,boxOpt=False,timestep=.182e-3,atomfile="POSCAR")
+		self.commit(opt,app);
+if __name__=='__main__':
+	sub().run()
+```
+
+## ph_g
+> the participation ratio of the above result is found not exactly 1.0, the partial_dos is right. to verify the phonopy code, we calculate the result of unitcell graphene . and the result is 1.0. 
+
+``` python
+from aces import Aces
+class sub(Aces):
+	def submit(self):
+		opt=dict(
+			units="metal",
+			species="graphene",
+			method="greenkubo",
+			nodes=1,
+			procs=4,
+			queue="q1.1",
+			runTime=500000
+			,runner="phonopy"
+		)
+		app=dict(kpoints=[30,30,1],useMini=True,
+		boxOpt=False,timestep=.182e-3,supercell=[5,5,1])
+		self.commit(opt,app);
+if __name__=='__main__':
+	sub().run()
+
+```
+
+## ph1
+> use boxOpt=True to overcome negative frequency
+
+## ph_graphene_bulk1
+> use boxOpt=True to overcome negative frequency
+
+
+--
+
+
+

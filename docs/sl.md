@@ -257,9 +257,10 @@ for lx,procs,nodes in [(180,12,1)]:
 		k,=sscanf(p,'kappa_src=%f')
 		kappa.append([lx,strain,k])
 kappa=np.array(kappa)
-from aces.graph import series,plot,fig,pl
+from aces.graph import series,plot,fig,pl,setLegend
 ms=['D','o','x','s','^','p','.','+']
-with fig('kappa.png',legend=True):
+with fig('lx.png',legend=False,figsize=(10,8)):
+	axis=pl.subplot(1,2,1)
 	strains=np.unique(kappa[:,1])
 	i=-1
 	for s in strains:
@@ -268,14 +269,16 @@ with fig('kappa.png',legend=True):
 
 		x=kappa[filter,0]
 		y=kappa[filter,2]
-		pl.plot(x,y,marker=ms[i],ms=8,mec=None,mfc='w',
-		mfcalt="w",mew=1.5,linewidth=1,alpha=.7,label='strain='+str(s))
-	pl.xlabel('lx')
-	pl.ylabel('Thermal Conductivity (W/m2K)')
+		axis.plot(x,y,marker=ms[i],ms=8,mec=None,mfc='w',mfcalt="w",mew=1.5,linewidth=1,alpha=.7,label='strain='+str(s))
+	axis.set_xlabel('lx')
+	axis.set_ylabel('Thermal Conductivity (W/m2K)')
 	#pl.xlim([0,25])
-	pl.xlim([50,160])
-	pl.ylim([0,20])
-with fig('strain.png',legend=True):
+	axis.set_xlim([50,160])
+	axis.set_ylim([0,20])
+	setLegend(axis)
+
+
+	axis=pl.subplot(1,2,2)
 	lxs=np.unique(kappa[:,0])
 	i=-1
 	for s in lxs:
@@ -284,17 +287,16 @@ with fig('strain.png',legend=True):
 
 		x=kappa[filter,1]
 		y=kappa[filter,2]
-		pl.plot(x,y,marker=ms[i],ms=8,mec=None,mfc='w',
-		mfcalt="w",mew=1.5,linewidth=1,alpha=.7,label='lx='+str(s))
-	pl.xlabel('strain')
-	pl.ylabel('Thermal Conductivity (W/m2K)')
-	pl.xlim([-0.002,0.045])
-	pl.ylim([0,20])
+		axis.plot(x,y,marker=ms[i],ms=8,mec=None,mfc='w',mfcalt="w",mew=1.5,linewidth=1,alpha=.7,label='lx='+str(s))
+	axis.set_xlabel('strain')
+	axis.set_ylabel('Thermal Conductivity (W/m2K)')
+	axis.set_xlim([-0.002,0.045])
+	axis.set_ylim([0,20])
+	setLegend(axis)
 ```
 
 ### result
-![](images/kappa.png)
-![](images/strain.png)
+![](images/lx.png)
 
 <style>img{background:white;width:100%;}</style>
 
@@ -424,12 +426,9 @@ if __name__=='__main__':
 ```
 `post.py`
 
-result
+### result
 
-![](images/tc_nx.png)
-![](images/dT_nx.png)
-![](images/dTnx_nx.png)
-![](images/profile.png)
+![](images/nx.png)
 
 ## nx1
 > larger lx
@@ -477,3 +476,6 @@ class sub(Aces):
 if __name__=='__main__':
 	sub().run()
 ```
+
+## nostrain
+> using the POSCAR of /samples/sample.py to calculate TC

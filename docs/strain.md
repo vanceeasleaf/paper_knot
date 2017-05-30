@@ -192,6 +192,7 @@ plot([x,'Strain'],[y,'Stress (GPa)'],filename='ave_stress.png')
 ### result
 
 ![](images/drop_position.png)
+![](images/ave_stress.png)
 
 <style>img{background:white;width:100%;}</style>
 
@@ -227,6 +228,33 @@ class sub(Aces):
 if __name__=='__main__':
 	sub().run()
 ```
+
+## loose
+
+> The newest idea is to study the graphene->knot phase transition and we have to get a very loose sample. We expect the knot may not be release even for strain = -0.9. use single structrue from data/POSCAR
+
+``` python 
+from aces import Aces
+class sub(Aces):
+	def submit(self):
+		opt=dict(
+			units="metal",
+			species="graphene_knot",
+			method="nvt",
+			nodes=1,
+			procs=4,
+			queue="q1.1",
+			runTime=500000
+			,runner="strain"
+		)
+		seed=100
+		app=dict(useMini=False,atomfile='POSCAR',vStrain=True,seed=seed,equTime=200000,strainStep=1000,maxStrain=-0.9,timestep=.3e-3)
+		self.commit(opt,app);
+if __name__=='__main__':
+	sub().run()
+
+```
+
 
 
 

@@ -7,6 +7,6 @@
 	- [render](render.md)
 	- [sl](sl.md)
 	- [test](test.md)
-- Analysis
+- [Result & Analysis](result.md)
 	
 - [Conclusion](conclusion.md)

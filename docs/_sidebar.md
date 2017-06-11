@@ -8,5 +8,4 @@
 	- [sl](sl.md)
 	- [test](test.md)
 - [Result & Analysis](result.md)
-	
 - [Conclusion](conclusion.md)

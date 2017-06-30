@@ -27,7 +27,7 @@ for lx, procs, nodes in [(180, 12, 1)]:
 kappa = np.array(kappa)
 
 ms = ['D', 'o', 'x', 's', '^', 'p', '.', '+']
-with fig('tc_lx.eps', legend=False, figsize=(10, 8)):
+with fig('tc_lx.eps', legend=False, figsize=(10, 6)):
     axis = pl.subplot(1, 2, 1)
     strains = np.unique(kappa[:, 1])
     i = -1

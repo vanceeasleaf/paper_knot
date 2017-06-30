@@ -2,7 +2,7 @@
 # @Author: YangZhou
 # @Date:   2017-06-30 15:23:41
 # @Last Modified by:   YangZhou
-# @Last Modified time: 2017-06-30 15:27:18
+# @Last Modified time: 2017-06-30 15:45:54
 import numpy as np
 import aces.tools as tl
 from scanf import sscanf
@@ -45,7 +45,7 @@ data = np.array(data)[::3]
 
 
 kappa = np.array(kappa)
-with fig('tc_nx.eps', figsize=(10, 10)):
+with fig('tc_nx.eps', figsize=(10, 6)):
 
     # tc-nx
     axis = pl.subplot(2, 2, 1)

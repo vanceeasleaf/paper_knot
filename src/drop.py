@@ -145,7 +145,7 @@ s = d[0][0]
 x = s[:, 0]
 y = kk.astype(np.float) / len(d)
 from aces.graph import setLegend
-with fig('drop.eps', legend=False, ncol=1, figsize=(14, 10)):
+with fig('drop.eps', legend=False, ncol=1, figsize=(10, 6)):
     oldpl = pl
     pl = oldpl.subplot(2, 2, 1)
     c = ['g', 'r', 'b', 'orange']

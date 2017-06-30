@@ -2,7 +2,7 @@
 # @Author: YangZhou
 # @Date:   1970-01-01 08:00:00
 # @Last Modified by:   YangZhou
-# @Last Modified time: 2017-06-30 15:17:09
+# @Last Modified time: 2017-06-30 15:43:52
 
 import numpy as np
 from aces.graph import fig, pl
@@ -25,11 +25,11 @@ dy = s[:, :, 1].std(axis=0)
 y1 = y + dy / 2.0
 y2 = y - dy / 2.0
 with fig("stress.eps"):
-    fi, axes = pl.subplots(1, 2, sharex=True, figsize=(8, 4))
+    fi, axes = pl.subplots(1, 2, sharex=True, figsize=(10, 5))
     ax = axes[0]
     for i in range(5):
-        y = s[i, :, 1]
-        ax.plot(x, y)
+        v = s[i, :, 1]
+        ax.plot(x, v)
     ax.set_xlabel('Strain')
     ax.set_ylabel('Stress (GPa)')
     ax.set_xlim([0, 0.8])

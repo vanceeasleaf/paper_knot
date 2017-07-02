@@ -2,13 +2,15 @@
 # @Author: YangZhou
 # @Date:   2017-06-21 01:41:49
 # @Last Modified by:   YangZhou
-# @Last Modified time: 2017-06-21 02:22:39
+# @Last Modified time: 2017-07-02 16:35:33
 import os
 if not os.path.exists("bin/"):
     os.mkdir("bin")
 os.chdir("bin")
+if not os.path.exists("images/"):
+    os.mkdir("images")
 os.system("cp ../ref.bib .")
-os.system("cp -r ../images .")
+os.system("cp ../../src/*.eps images/")
 os.system('latex ../paper.tex')
 os.system('bibtex paper')
 os.system('latex ../paper.tex')

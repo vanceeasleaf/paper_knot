@@ -1,7 +1,7 @@
 % @Author: YangZhou
 % @Date:   2017-06-20 20:27:38
 % @Last Modified by:   YangZhou
-% @Last Modified time: 2017-07-02 16:41:05
+% @Last Modified time: 2017-07-02 21:37:36
 \documentclass[%
  reprint,
  amsmath,amssymb,
@@ -64,7 +64,10 @@ Non-equilibrium molecular dynamics (NEMD) simulation2 is used to calculate therm
 \end{equation}
 
 where $\nabla T$ is the average gradient of temperature calculated with linear fitting. And $J_x=h/dt S$ is heat flux calculated from the Nose-Hover work $h$, and the angular bracket denotes an ensemble average. $S$ is the crossover area.
-
+\begin{figure}[b]
+  \includegraphics[width=0.48\textwidth]{images/structure}
+  \caption{\label{fig:structure}  (color online) The perspective view of a graphene knot}
+\end{figure}
 A periodic boundary condition is applied in the y (transverse) direction, and a free boundary condition is applied in the other two directions. For each realization, all the atoms are initially placed at their equilibrium positions and then minimized at zero pressure. Then, the most two ends are fixed to reduce the drift and rotation, and the unfixed part has a random velocity according to Gaussian distribution which are then equilibrated at a given temperature 300K with a Nose-Hover thermostat3 of $2 \times10^5$ steps (0.1ns). After that, the temperature difference is built using two Nose-Hoover heat bath of 290K and 310K respectively at the two region behind the fixed region while the main parts remain NVE for another $1 \times10^7$ steps (5.0 ns) to drive the system to a stable temperature and heat flux distribution. After that, thermal conductivity is calculated according to Eq. (1). The final result is averaged over 5 realizations with different initial conditions.
 
 The structures are prepared using interactive molecular dynamics (IMD). A graphene ribbon is mapped isodistantly to part of the knot curve described by the Trefoil equation
@@ -79,25 +82,22 @@ The structures are prepared using interactive molecular dynamics (IMD). A graphe
 
 We choose s large enough to avoid oversuppesing according to the length and width of the ribbon. The structures are shown in Fig. \ref{fig:structure}
 
-\begin{figure}[b]
-  \includegraphics[width=0.48\textwidth]{images/structure}
-  \caption{\label{fig:structure}  (color online) The perspective view of a graphene knot}
-\end{figure}
+
 
 Then the system is given an initial velocity distribution of guassian at 300K while two strains are applied at the two ends towards the opposite directions. Meanwhile the mass center drifting is removed. We apply Verlet algorithm for 200000 steps when the system is in a stable state.
-
+\begin{figure}[b]
+  \includegraphics[width=0.48\textwidth]{images/stress}
+  \caption{\label{fig:stress}  (color online) The Stres-Strain curve from 0 to a very large strain where the structures break. a) Several simulations of different random seed for MD initialization. b) The average Stress-strain curve calculated with 200 seeds. The standard error is also shown as grey ribbon.}
+\end{figure}
 \section{RESULTS AND DISCCUSION}
 
 Before transport study, we have to access knowledge about the strain effect on the knot. The right end of the system is moved along x direction by a very slow velocity to apply accumulate strain ( $0.01 \angstrom / ps$ ) ,just the same operation in experiment. The stress is calculated with Vitual Therom and averaged in every 1000 steps. Fig.\ref{fig:stress} shows the break test of the knot. Under strain of 7\% the system is in it's unique stable state and it's unrelated to the initial seed. The remained stress at strain=0 is needed to prevent  the knot from release. At about 2\% there's a sudden small drop origin from bond reconstruction. At 7\% the knot break. But the knot doesn't break down, but results in another structure with inreversibility. All of the samples don't break down here. After a constant increasement of the strain the stress presents increasing fluctuate which is due to the soften of the structure which make it inconverge within the average steps. Some of the samples doesn't break even until the total stress exceed the first break critical stress. Some of them break down, but some of them keep connected but present a one-atom chain state. Between every breaks the stress-strain curve presents nearly linear and certain Young's modules.
 The breaking happens at the entrance of the knot.
 It's reasonable to study the properties only under stain of 5\%.
 Knots ensemble shows a plastic future while graphene break very certainly.
-\begin{figure}[b]
-  \includegraphics[width=0.48\textwidth]{images/stress}
-  \caption{\label{fig:stress}  (color online) The Stres-Strain curve from 0 to a very large strain where the structures break. a) Several simulations of different random seed for MD initialization. b) The average Stress-strain curve calculated with 200 seeds. The standard error is also shown as grey ribbon.}
-\end{figure}
 
-To have a global vision of the break process we carried out more analysis on the break data as shown in Fig.\ref{fig:drop}. From figure Fig.\ref{fig:drop}a we found that the first drop happens at around 7\%  and the distribution is pretty concentrate. While the second break happens when the strain is bwteen 10\% to 40\% and is obviously broaded. This state is unstable and could be either break right after the first break or hold for a large range of strain. The 3rd and 4th breaks happens almost at the same range and has a wider range.The Young's modules distribution of the states between all the break is shown in Fig.\ref{fig:drop}b. The value at aboutn $220GPa/m$ present for the modules of unbreak knot and this value is much smaller than that of graphene ribbon of $900GPa/m$. The rest of the modules exhibit a slow decrease from 0 to $300GPa/m$ and most of them are below 150 $300GPa/m$ ,which shows that the system is softer.Fig.\ref{fig:drop}c shows the probobility of total break times when considering strain in range 0 to 1.0. The distribution exhibit a long tail.  Most of the samples break down within two or three times while that of four to five also have relative big probability. In the extreme situation the system could break up to 9 times. Fig.\ref{fig:drop}d shows the the probability of break down. Below 0.07 there's no probability of breaking down and the structure is stable. when above 0.07 there's about 2\% samples break down. With the strain increase the system has larger probability to break down, however the probability increase slower and slower which is due to the softer feature of the filament and the same strain contributes lesser
+
+To have a global vision of the break process we carried out more analysis on the break data as shown in Fig.\ref{fig:drop}. From figure Fig.\ref{fig:drop}a we found that the first drop happens at around 7\%  and the distribution is pretty concentrate. While the second break happens when the strain is bwteen 10\% to 40\% and is obviously broaded. This state is unstable and could be either break right after the first break or hold for a large range of strain. The 3rd and 4th breaks happens almost at the same range and has a wider range.The Young's modules distribution of the states between all the break is shown in Fig.\ref{fig:drop}b. The value at aboutn $220GPa/m$ present for the modules of unbreak knot and this value is much smaller than that of graphene ribbon of $900GPa/m$. The rest of the modules exhibit a slow decrease from 0 to $300GPa/m$ and most of them are below  $150GPa/m$ ,which shows that the system is softer.Fig.\ref{fig:drop}c shows the probobility of total break times when considering strain in range 0 to 1.0. The distribution exhibit a long tail.  Most of the samples break down within two or three times while that of four to five also have relative big probability. In the extreme situation the system could break up to 9 times. Fig.\ref{fig:drop}d shows the the probability of break down. Below 0.07 there's no probability of breaking down and the structure is stable. when above 0.07 there's about 2\% samples break down. With the strain increase the system has larger probability to break down, however the probability increase slower and slower which is due to the softer feature of the filament and the same strain contributes lesser
 stress so the lesser probability of break down. When the strain reaches about 0.9 all the samples must have broken down.
 
 \begin{figure}[b]
